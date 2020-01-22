@@ -19,7 +19,7 @@ if name == "":
 
 print("\nHi, " + name + ". Here are the rules.\n"
       "I will think the random number from 1 to 10.\n"
-      "You, " + name +" will guess it.\n"
+      "You, " + name + " will guess it.\n"
       "You can guess how many rounds you want.\n"
       "Just type 'FINISH' and I will quit the game and show you the score.\n"
       "Good luck, " + name + ".\n")
@@ -39,6 +39,13 @@ while True:
         correct_guess += 1
         rand_number = random.randint(1, 10)
     elif game_over == guess.lower().strip():
+        wrong_guess -= 1
         break
 
-print("Correct guess: {}\nWrong guess: {}\nTotal: {}".format(correct_guess, wrong_guess - 1, (correct_guess + wrong_guess)-1))
+#print("Correct guess: {}\nWrong guess: {}\nTotal: {}".format(correct_guess, wrong_guess - 1, (correct_guess + wrong_guess)-1))
+
+print("+{:-^24}+".format("Your Score"))
+print("|{0:>12}{1:<12}|".format("Correct: ", correct_guess))
+print("|{0:>12}{1:<12}|".format("Incorrect: ", wrong_guess - 1))
+print("|{0:>12}{1:<12}|".format("Total: ", (correct_guess + wrong_guess)-1))
+print("+{:-^24}+".format("-"))
